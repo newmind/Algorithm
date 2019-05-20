@@ -21,15 +21,15 @@ def line_sweeping(lines : queue):
 ######
 
 if __name__ == "__main__":
-  # n = int(input())
+  n = int(sys.stdin.readline())
   lines = queue.PriorityQueue(maxsize=n)
-  # while n > 0:
-  #   a, b = map(int, sys.stdin.readline().split())
-  #   lines.put([a, b])
-  #   n -= 1
+  while n > 0:
+    a, b = map(int, sys.stdin.readline().split())
+    lines.put([a, b])
+    n -= 1
 
-  arr = [[1, 3], [-2, 5], [3, 5], [6, 7]]
-  for x in arr:
-    lines.put(x)
+  # arr = [[1, 3], [-2, 5], [3, 5], [6, 7]]
+  # for x in arr:
+  #   lines.put(x)
 
   line_sweeping(lines)
