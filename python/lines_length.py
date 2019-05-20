@@ -1,14 +1,13 @@
 # 2170
 
 import sys
-import queue
-import heapq
 
-def line_sweeping_pq(lines : queue):
+def line_sweeping_list(lines : list):
+  lines.sort()
   length = 0
-  x, y = lines.get()
-  while not lines.empty():
-    x2, y2 = lines.get()
+  x, y = lines[0]
+  for i in range(1, len(lines)):
+    x2, y2 = lines[i]
     if x2 > y:
       length += y - x
       x = x2
@@ -19,19 +18,21 @@ def line_sweeping_pq(lines : queue):
   length += y - x
   print(length)
 
+
 ######
 
 if __name__ == "__main__":
-  # n = int(sys.stdin.readline())
-  # lines = queue.PriorityQueue(maxsize=n)
-  # while n > 0:
-  #   a, b = map(int, sys.stdin.readline().split())
-  #   lines.put([a, b])
-  #   n -= 1
+#   n = int(sys.stdin.readline())
+#   arr = [sys.stdin.readline().rstrip() for i in range(n)]
 
-  lines = queue.PriorityQueue()
-  arr = [[1, 3], [-2, 5], [3, 5], [6, 7]]
-  for x in arr:
-    lines.put(x)
+#   lines = [[0, 0] for _ in range(n)]
 
-  line_sweeping_pq(lines)
+#   for i in range(n):
+#     a, b = arr[i].split()
+#     lines[i][0] = int(a)
+#     lines[i][1] = int(b)
+
+  import random
+  lines = [[random.randint(0, 1000), random.randint(1001, 2000)] for _ in range(1000000)]
+
+  line_sweeping_list(lines)
