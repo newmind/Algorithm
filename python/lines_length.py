@@ -18,24 +18,6 @@ def line_sweeping_list(lines : list):
   length += y - x
   print(length)
 
-
-######
-# import sys
-# input=sys.stdin.readline
-# p=[]
-# N=int(input())
-# for _ in range(N):
-# 	a,b=map(int,input().split())
-# 	if a>b:a,b=b,a
-# 	p.append((a,b))
-# p.sort();L=0;s,e=p[0]
-# for i in range(1,N):
-# 	n,m=p[i]
-# 	if e<n:L+=e-s;s,e=n,m
-# 	elif e<m:e=m
-# print(L+e-s)
-
-
 if __name__ == "__main__":
 #   n = int(sys.stdin.readline())
 #   arr = [sys.stdin.readline().rstrip() for i in range(n)]
@@ -53,8 +35,5 @@ if __name__ == "__main__":
   for i in range(n):
     a, b = map(int, sys.stdin.readline().rstrip().split())
     lines.append((a, b))
-
-  # import random
-  # lines = [[random.randint(0, 1000), random.randint(1001, 2000)] for _ in range(1000000)]
 
   line_sweeping_list(lines)
