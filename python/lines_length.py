@@ -1,10 +1,13 @@
 # 2170
 
-def line_sweeping(lines):
+import sys
+import queue
+
+def line_sweeping(lines : queue):
   length = 0
-  x, y = lines[0]
-  for i in range(1, len(lines)):
-    x2, y2 = lines[i]
+  x, y = lines.get()
+  while not lines.empty():
+    x2, y2 = lines.get()
     if x2 > y:
       length += y - x
       x = x2
@@ -18,13 +21,15 @@ def line_sweeping(lines):
 ######
 
 if __name__ == "__main__":
-  lines = []
-  n = int(input())
-  while n > 0:
-    a, b = map(int, input().split())
-    lines.append([a, b])
-    n -= 1
+  # n = int(input())
+  lines = queue.PriorityQueue(maxsize=n)
+  # while n > 0:
+  #   a, b = map(int, sys.stdin.readline().split())
+  #   lines.put([a, b])
+  #   n -= 1
 
-  # lines = [[1, 3], [2, 5], [3, 5], [6, 7]]
-  lines.sort()
+  arr = [[1, 3], [-2, 5], [3, 5], [6, 7]]
+  for x in arr:
+    lines.put(x)
+
   line_sweeping(lines)
