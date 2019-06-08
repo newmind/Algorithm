@@ -1,0 +1,52 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [{
+      "name": "(cppdbg) C++ current file",
+      "type": "cppdbg",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "internalConsoleOptions": "openOnSessionStart",
+      "logging": {
+        "moduleLoad": false,
+        "programOutput": true,
+        "trace": false
+      },
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false, // set true to enable keyboard input
+      "MIMode": "lldb"
+    },
+    {
+      "name": "(lldb) C++ current file",
+      "type": "lldb",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "internalConsoleOptions": "openOnSessionStart",
+      "logging": {
+        "moduleLoad": false,
+        "programOutput": true,
+        "trace": false
+      },
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false, // set true to enable keyboard input
+      "MIMode": "lldb"
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
