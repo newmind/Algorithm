@@ -19,7 +19,7 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": false, // set true to enable keyboard input
+      "externalConsole": true, // set true to enable keyboard input
       "MIMode": "lldb"
     },
     {
