@@ -13,6 +13,6 @@ int main() {
     s << i << endl;
     ++i;
   }
-  // cout << s.str();
+  cout << s.str();
   return 0;
 }
