@@ -11,7 +11,9 @@
         "${file}", // main file
         "-g",
         "-v",
-        "-std=c++11"
+        "-std=c++11",
+        "-Warray-bounds",
+        "-Warray-bounds-pointer-arithmetic"
       ],
       "type": "shell",
       "presentation": {
