@@ -1,7 +1,6 @@
 package net.acmicpc.p2675_str_print;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.util.StringTokenizer;
 import java.io.*;
 
 public class Main {
@@ -12,12 +11,15 @@ public class Main {
 
     int N = Integer.parseInt(br.readLine());
     while (N-- > 0) {
-      int multiple = br.read() - '0';
+      StringTokenizer st = new StringTokenizer(br.readLine());
+      // int multiple = br.read() - '0';
+      int multiple = Integer.parseInt(st.nextToken());
       // br.read();
-      char[] str = br.readLine().toCharArray();// .trim();
-      for (int i = 1; i < str.length; i++) {
+      // char[] str = br.readLine().toCharArray();
+      char[] str = st.nextToken().toCharArray();
+      for (int i = 0; i < str.length; i++) {
         for (int j = 0; j < multiple; j++)
-          // bw.write(c);
+          // bw.write(str[i]);
           sb.append(str[i]);
       }
 
