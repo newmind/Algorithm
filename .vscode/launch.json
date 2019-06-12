@@ -3,7 +3,16 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
-  "configurations": [{
+  "configurations": [
+        {
+      "type": "java",
+      "name": "Java (Launch) - Current File",
+      "request": "launch",
+      "mainClass": "${file}",
+      "stopOnEntry": true,
+      "console": "externalTerminal"
+    },
+    {
       "name": "(cppdbg) C++ current file",
       "type": "cppdbg",
       "request": "launch",
@@ -19,7 +28,7 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": true, // set true to enable keyboard input
+      "externalConsole": true,
       "MIMode": "lldb"
     },
     {
@@ -38,7 +47,7 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": false, // set true to enable keyboard input
+      "externalConsole": false,
       "MIMode": "lldb"
     },
     {
