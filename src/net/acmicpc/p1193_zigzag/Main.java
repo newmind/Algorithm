@@ -1,47 +1,42 @@
 package net.acmicpc.p1193_zigzag;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.*;
-import java.util.*;
 
+/*
+분수찾기
+https://www.acmicpc.net/problem/1193
+*/
 public class Main {
+    public static void fast_solution(int X) {
+        int h = 0;
+        int w = 0;
+        for (int i = 1; X > 0; i++) {
+            h++;
+            if (X > i)
+                X -= i;
+            else {
+                w = X;
+                break;
+            }
+        }
+
+        if ((h % 2) == 0) {
+            int a = w;
+            int b = h - (w - 1);
+            System.out.println((a) + "/" + (b));
+        } else {
+            int a = h - (w - 1);
+            int b = w;
+            System.out.println((a) + "/" + (b));
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        final int limit = 10000000;
-
         int X = Integer.parseInt(br.readLine());
-        X--;
-        // int X = 14;
-        if (X == 1) {
-            System.out.println("1/1");
-            return;
-        }
-
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(0);
-        arr.add(1);
-        for (int i = 2; arr.get(arr.size()-1) < X; i++) {
-            arr.add(i + arr.get(i-1));
-        }
-
-        int h = arr.size()-1;
-        for (; h > 1; h--) {
-            if (X / arr.get(h) == 1) 
-                break;
-        }
-        h++;
-        int w = X % h;
-        if (w == 0) {
-            w++;
-        }
-        // System.out.println(h + ", " + w);
-        if ((h % 2) == 1) {
-            h = h - w + 1;
-        }
-        System.out.println(h + "/" + w);
-
-        return; 
+        fast_solution(X);
+        return;
     }
 }
