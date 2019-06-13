@@ -6,15 +6,17 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int lower_bound(List<Integer> l, int x) {
+    static boolean binary_search(int[] l, int x) {
         int s = 0;
-        int e = l.size();
+        int e = l.length;
         while (s < e) {
             int m = (s+e) / 2;
-            if (l.get(m) < x) s = m+1;
+            if (l[m] == x) return true;
+            if (l[m] < x) s = m+1;
             else e = m;
         }
-        return e;
+        return false;
+        // return e;
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,7 +35,9 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             int x = Integer.parseInt(st.nextToken());
-            if (Arrays.binarySearch(nums, x) < 0)
+            // int pos = binary_search(nums, x);
+            if (!binary_search(nums, x))
+            // if (pos == N || nums[pos] != x)
                 bw.write('0');
             else
                 bw.write('1');
