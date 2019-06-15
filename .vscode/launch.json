@@ -9,7 +9,7 @@
       "request": "launch",
       "mainClass": "${file}",
       "stopOnEntry": true,
-      "console": "externalTerminal"
+      "console": "integratedTerminal"
     },
     {
       "name": "(Mac cppdbg) C++ current file (Console input)",
