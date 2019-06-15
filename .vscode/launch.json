@@ -12,10 +12,10 @@
       "console": "externalTerminal"
     },
     {
-      "name": "(cppdbg) C++ current file",
+      "name": "(Mac cppdbg) C++ current file (Console input)",
       "type": "cppdbg",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "build (Mac)",
       "internalConsoleOptions": "openOnSessionStart",
       "logging": {
         "moduleLoad": false,
@@ -31,10 +31,10 @@
       "MIMode": "lldb"
     },
     {
-      "name": "(lldb) C++ current file",
+      "name": "(Mac lldb) C++ current file (debugger)",
       "type": "lldb",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "build (Mac)",
       "internalConsoleOptions": "openOnSessionStart",
       "logging": {
         "moduleLoad": false,

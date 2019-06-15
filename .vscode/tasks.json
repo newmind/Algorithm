@@ -3,7 +3,7 @@
   // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [{
-      "label": "build",
+      "label": "build (Mac)",
       "command": "clang++",
       "args": [
         "-o",
@@ -13,7 +13,11 @@
         "-v",
         "-std=c++11",
         "-Warray-bounds",
-        "-Warray-bounds-pointer-arithmetic"
+        "-Warray-bounds-pointer-arithmetic",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror"
       ],
       "type": "shell",
       "presentation": {
