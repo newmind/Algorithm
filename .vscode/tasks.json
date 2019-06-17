@@ -12,12 +12,12 @@
         "-g",
         "-v",
         "-std=c++11",
-        "-Warray-bounds",
-        "-Warray-bounds-pointer-arithmetic",
-        "-Wall",
-        "-Wextra",
-        "-Wpedantic",
-        "-Werror"
+        // "-Warray-bounds",
+        // "-Warray-bounds-pointer-arithmetic",
+        // "-Wall",
+        // "-Wextra",
+        // "-Wpedantic",
+        // "-Werror"
       ],
       "type": "shell",
       "presentation": {
