@@ -21,27 +21,31 @@ vector<vector<int> > button({
     vector<int>( { 3, 4, 5, 9, 13 })
 });
 
-bool is_synced(vector<int>&  arr) {
-    static const vector<int> all_12(16, 12);
+bool is_synced(uint32_t  arr) {
+    const uint32_t all_12 = 0x0000;
     return arr == all_12;
 }
 
-void sync(int btn, vector<int>& arr, int clicks, int* min_click) {
-    if (btn == button.size()) {
-      if (is_synced(arr)) {
-          *min_click = min(clicks, *min_click);
-      }
+void sync(int btn, uint32_t clocks, int clicks, int* min_click) {
+    if (is_synced(clocks)) {
+      *min_click = min(clicks, *min_click);
+      return;
+    }
+    if (btn == button.size() || clicks > *min_click) {
       return;
     }
 
     for (size_t i = 0; i < 4; i++) {
-        sync(btn+1, arr, clicks+i, min_click);
+        sync(btn+1, clocks, clicks+i, min_click);
 
         // rotate
         for (size_t j = 0; j < button[btn].size(); j++) {
-            arr[button[btn][j]] += 3;
-            if (arr[button[btn][j]] > 12)
-                arr[button[btn][j]] = 3;
+            uint32_t clock_i = button[btn][j];
+            uint32_t n = (clocks >> (clock_i*2)) & 3;
+            n = (n + 1) & 3;
+            n = n << clock_i*2;
+            clocks &= ~(3<<(clock_i*2));
+            clocks |= n;
         }
     }
     // 4바퀴 돌아서 원래 상태로 돌아가게 해야 함
@@ -58,23 +62,25 @@ int main() {
 
   while (C--) {
 
-    // int arr[16] = {0,};
-    vector<int> arr(16);
+    unsigned int clocks = 0; // 32 bits, 모두 12시 0x0000, 하나를 2 bits 로
     for (size_t i = 0; i < 16; i++) {
-        cin >> arr[i];
+      int clock;
+      cin >> clock;
+      clock =  (clock / 3) & 3;
+      clocks = clocks | (clock << (i*2));
     }
 
     int min_click = 987654321;
-    sync(0, arr, 0, &min_click);
+    sync(0, clocks, 0, &min_click);
 
     if (min_click == 987654321)
         min_click = -1;
     cout << min_click << endl;
 
     // for (size_t i = 0; i < 12; i++) {
-    //     int a;
-    //     cin >> a;
-    //     bits = bits | (a<<(i*2));
+    //     int clock;
+    //     cin >> clock;
+    //     bits = bits |  clock<<(i*2));
     // }
     // sync(0, arr, 0);
   }
