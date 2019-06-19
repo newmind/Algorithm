@@ -22,19 +22,16 @@ vector<vector<int> > button({
 });
 
 bool is_synced(vector<int>&  arr) {
-    for (size_t i = 0; i < arr.size(); i++) 
-        if (arr[i] != 12) 
-            return false;
-    return true;    
+    static const vector<int> all_12(16, 12);
+    return arr == all_12;
 }
 
 void sync(int btn, vector<int>& arr, int clicks, int* min_click) {
-    if (btn == button.size() || clicks > *min_click) {
-        return;
-    }
-    if (is_synced(arr)) {
-        *min_click = min(clicks, *min_click);
-        return;
+    if (btn == button.size()) {
+      if (is_synced(arr)) {
+          *min_click = min(clicks, *min_click);
+      }
+      return;
     }
 
     for (size_t i = 0; i < 4; i++) {
@@ -45,10 +42,9 @@ void sync(int btn, vector<int>& arr, int clicks, int* min_click) {
             arr[button[btn][j]] += 3;
             if (arr[button[btn][j]] > 12)
                 arr[button[btn][j]] = 3;
-
-        }        
+        }
     }
-    
+    // 4바퀴 돌아서 원래 상태로 돌아가게 해야 함
 }
 
 
@@ -71,17 +67,16 @@ int main() {
     int min_click = 987654321;
     sync(0, arr, 0, &min_click);
 
-    if (min_click == 987654321) 
+    if (min_click == 987654321)
         min_click = -1;
     cout << min_click << endl;
 
-    // int bits = 0; // 24 bits, 모두 12 시 (1<<24)-1
     // for (size_t i = 0; i < 12; i++) {
     //     int a;
     //     cin >> a;
     //     bits = bits | (a<<(i*2));
     // }
-    // sync(0, arr, 0);    
+    // sync(0, arr, 0);
   }
 
   return 0;
