@@ -29,10 +29,8 @@ int main() {
   ll a, b;
   cin >> a >> b;
   ll g = gcd(a, b);
-  while (g--) {
-    cout << '1';
-  }
 
-  cout.flush();
+  cout << string(g, '1') << endl;
+
   return 0;
 }
